@@ -21,7 +21,9 @@ def run_cli_loop():
                 print(df)
             except FileNotFoundError: # Defensive check wrapper [cite: 53]
                 print("\n[ERROR] Core spreadsheet data matrix not found. [cite: 54]")
-                
+            except Exception as e:
+                print("\n[ERROR] System Crash Defense: Data file is corrupted or structurally invalid.")
+                print(f"Diagnostic Logs: {e}")                
         elif choice == "2":
             print("\n--- Executing Cellular Cohort Screening Filters ---")
             try:
@@ -30,7 +32,9 @@ def run_cli_loop():
                 print(df[cancer_cell_mask])
             except FileNotFoundError: # Defensive check wrapper [cite: 53]
                 print("\n[ERROR] Core spreadsheet data matrix not found. [cite: 54]")
-                
+            except Exception as e:
+                print("\n[ERROR] System Crash Defense: Data file is corrupted or structurally invalid.")
+                print(f"Diagnostic Logs: {e}")    
         elif choice == "3":
             print("\nExiting StemMatch-Analytics. Systems turning off gracefully. Goodbye!")
             break
